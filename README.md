@@ -83,8 +83,8 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 - To test everything, please run the following code:<br>
     ```$HOME: workon desired_name```<br>
     ```$HOME: python```<br>
-        * ```import tensorflow as tf```<br>
-        * ```tf.test.is_gpu_available()```<br>
+        * ```\> import tensorflow as tf```<br>
+        * ```\> tf.test.is_gpu_available()```<br>
     ```$HOME: True```<br>
 
 ## What's included
@@ -121,7 +121,7 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 
 ## Screenshot
 
-<img src="images/Training.png" width="425"/> <img src="images/Trained.png" width="600"/> 
+<img src="images/Training.png" width="425"/> <img src="images/Trained.png" width="550"/> 
 ![](images/Screenshot.png)
 ![](images/Screenshot2.png)
 
