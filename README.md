@@ -36,9 +36,9 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 #### NVIDIA
 
 - Graphics Driver:
-        ```sudo add-apt-repository ppa:graphics-drivers/ppa```
-        ```sudo apt-get install nvidia-driver-4xx```
-        ```sudo reboot now```
+        ```sudo add-apt-repository ppa:graphics-drivers/ppa```<br>
+        ```sudo apt-get install nvidia-driver-4xx```<br>
+        ```sudo reboot now```<br>
         **Verify using the command ```nvidia-smi``` on the terminal**
 - CUDA:
         obtain the latest CUDA from here: ```https://developer.nvidia.com/cuda-downloads?target_os=Linux```
