@@ -121,7 +121,7 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 
 ## Screenshot
 
-<img src="images/Training.png" width="405"/> <img src="images/Trained.png" width="450"/> 
+<img src="images/Training.png" width="350"/> <img src="images/Trained.png" width="450"/> 
 ![](images/Screenshot.png)
 ![](images/Screenshot2.png)
 
