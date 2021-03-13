@@ -8,7 +8,7 @@ from keras.models import Sequential
 class LeNet:
     @staticmethod
     def build(width, height, depth, classes):
-        # initialize the model
+        # initialize the trained_model
         model = Sequential()
         input_shape = (height, width, depth)
 

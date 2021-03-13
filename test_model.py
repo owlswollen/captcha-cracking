@@ -17,14 +17,14 @@ from helpers import preprocess
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--input", required=True,
                 help="path to input directory of images")
-ap.add_argument("-m", "--model", required=True,
-                help="path to input model")
+ap.add_argument("-m", "--trained_model", required=True,
+                help="path to input trained_model")
 args = vars(ap.parse_args())
 
 # load the pre-trained network
 print("[INFO] loading pre-trained network...")
-model = load_model(args["model"])
-lb = load(open(os.path.join(args["model"], "label_binarizer.pkl"), 'rb'))
+model = load_model(args["trained_model"])
+lb = load(open(os.path.join(args["trained_model"], "label_binarizer.pkl"), 'rb'))
 # randomly sample a few of the input images
 imagePaths = list(paths.list_images(args["input"]))
 # imagePaths = np.random.choice(imagePaths, size=(10,), replace=False)
@@ -112,7 +112,7 @@ for imagePath in imagePaths:
         """
         roi = preprocess(letter_image, 28, 28)
         roi = np.expand_dims(img_to_array(roi), axis=0) / 255.0
-        pred = model.predict(roi).argmax(axis=1)[0]
+        pred = trained_model.predict(roi).argmax(axis=1)[0]
         """
         # Ask the neural network to make a prediction
         if simple_captcha == 1:

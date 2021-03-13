@@ -20,8 +20,8 @@ np.random.seed(0)
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required=True,
                 help="path to input dataset")
-ap.add_argument("-m", "--model", required=True,
-                help="path to output model")
+ap.add_argument("-m", "--trained_model", required=True,
+                help="path to output trained_model")
 args = vars(ap.parse_args())
 
 # initialize the data and labels
@@ -57,8 +57,8 @@ lb = LabelBinarizer().fit(train_Y)
 train_Y = lb.transform(train_Y)
 test_Y = lb.transform(test_Y)
 
-# initialize the model 
-print("[INFO] compiling model...")
+# initialize the trained_model
+print("[INFO] compiling trained_model...")
 num_classes = np.unique(labels).shape[0]
 model = LeNet.build(width=28, height=28, depth=1, classes=num_classes)
 num_epochs = 20
@@ -77,10 +77,10 @@ print("[INFO] evaluating network...")
 predictions = model.predict(test_X, batch_size=batch_size)
 # print(classification_report(test_Y.argmax(axis=1), predictions.argmax(axis=1), target_names=lb.classes_))
 
-# save the model and label binarizer to disk
+# save the trained_model and label binarizer to disk
 print("[INFO] serializing network...")
-model.save(args["model"])
-dump(lb, open(os.path.join(args["model"], "label_binarizer.pkl"), 'wb'))
+model.save(args["trained_model"])
+dump(lb, open(os.path.join(args["trained_model"], "label_binarizer.pkl"), 'wb'))
 
 # plot the training + testing loss and accuracy
 plt.style.use("ggplot")
@@ -94,5 +94,5 @@ plt.title("Training Loss and Accuracy")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
 plt.legend()
-plt.savefig(os.path.join(args['model'], "result.png"))
+plt.savefig(os.path.join(args['trained_model'], "result.png"))
 plt.show()
