@@ -14,17 +14,23 @@
 This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz 
 
 ### Installation requirement
-- Essentials: 
+- Essentials:
+
     ```sudo apt-get install build-essential cmake unzip pkg-config```
-- X-windows libraries + openGL: 
+- X-windows libraries + openGL:
+
     ```sudo apt-get install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev```
-- Image + video I/O libraries: 
+- Image + video I/O libraries:
+
     ```sudo apt-get install libjpeg-dev libpng-dev libtiff-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev```
-- Optimization libaries: 
+- Optimization libaries:
+
     ```sudo apt-get install libopenblas-dev libatlas-base-dev liblapack-dev gfortran```
-- Large dataset: 
+- Large dataset:
+
     ```sudo apt-get install libhdf5-serial-dev```
-- Python3-related: 
+- Python3-related:
+
     ```sudo apt-get install python3-dev python3-tk python-imaging-tk libgtk-3-dev```
 
 #### NVIDIA
