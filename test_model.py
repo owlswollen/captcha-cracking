@@ -9,6 +9,7 @@ import cv2
 from imutils import paths
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
+from helpers import add_padding
 
 # Set the random seed
 from helpers import preprocess
@@ -32,7 +33,9 @@ imagePaths = list(paths.list_images(args["input"]))
 # loop over the image paths
 for imagePath in imagePaths:
     image = cv2.imread(imagePath)
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    padded = add_padding(image)
+
+    gray = cv2.cvtColor(padded, cv2.COLOR_BGR2GRAY)
 
     blurred = cv2.GaussianBlur(gray, (3, 3), 0)
     simple_captcha = 0
@@ -49,6 +52,7 @@ for imagePath in imagePaths:
     # Store images
     image_attributes = []
     contour_boxes = []
+
     contours, conts_hierarchy = cv2.findContours(threshed.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
     # initialize the output image as a "grayscale" image with 3
@@ -136,7 +140,9 @@ for imagePath in imagePaths:
         cv2.putText(output, str(letter), (x - 4, y - 4),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
 
+    plt.title(os.path.basename(imagePath))
     plt.imshow(output, cmap='gray')
     plt.xticks([]), plt.yticks([])
     plt.show(block=True)
+
     print("[INFO] captcha: {}".format("".join(predictions)))

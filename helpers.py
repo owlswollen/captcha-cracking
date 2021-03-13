@@ -2,6 +2,7 @@
 import cv2
 import imutils
 import numpy as np
+from PIL import Image
 
 
 def resize_to_fit(image, width, height):
@@ -40,6 +41,23 @@ def resize_to_fit(image, width, height):
 
     # return the pre-processed image
     return image
+
+
+def add_padding(image):
+    ht, wd, cc = image.shape
+    # create new image of desired size and color (blue) for padding
+    ww = 300
+    hh = 100
+    color = (255, 255, 255)
+    result = np.full((hh, ww, cc), color, dtype=np.uint8)
+
+    # compute center offset
+    xx = (ww - wd) // 2
+    yy = (hh - ht) // 2
+
+    # copy img image into center of result image
+    result[yy:yy + ht, xx:xx + wd] = image
+    return result
 
 
 def preprocess(image, width, height):
