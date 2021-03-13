@@ -35,24 +35,39 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 
 #### NVIDIA
 
-- Graphics Driver: 
+- Graphics Driver:
+
         ```sudo add-apt-repository ppa:graphics-drivers/ppa```
+	
         ```sudo apt-get install nvidia-driver-4xx```
+	
         ```sudo reboot now```
+	
         Verify using the command ```nvidia-smi``` on the terminal
 - CUDA:
         obtain the latest CUDA from here: ```https://developer.nvidia.com/cuda-downloads?target_os=Linux```
+	
         ```chmod +x cuda_*_linux.run```
+	
         ```sudo ./cuda_*.run --silent --toolkit --override```
+	
         modify your shell script (e.g., `.bashrc`) to include these two paths and then ```source bashrc```:
+	
             1. ```export PATH=/usr/local/cuda-xx.x/bin:$PATH```
+	    
             2. ```export LD_LIBRARY_PATH=/usr/local/cuda-xx.x/lib64```
+	    
         Verify using the command ```nvcc -V``` on the terminal
-- cuDNN: 
+- cuDNN:
+
         obtain the latest cuDNN from here ```https://developer.nvidia.com/rdp/cudnn-download```
+	
         ```tar -zxf cudnn-*.tgz```
+	
         ```cd cuda```
+	
         ```sudo cp -P lib64/* /usr/local/cuda/lib64/```
+	
         ```sudo cp -P include/* /usr/local/cuda/include/```
 
 
