@@ -102,6 +102,8 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 │   │   │── success_cases/
 │   │   └── test_images/
 │   └── trained_model/
+├── JSoup/
+│   └── App.java 
 │── dataset.py
 │── helpers.py
 │── lenet.py
@@ -110,6 +112,9 @@ This tool has been tested on Ubuntu 20.04 / Intel(R) Core(TM) i5-10400F CPU @ 2.
 ```
 
 ## How to use
+
+### To download Wikipedia images
+run ```App.java```
 
 ### To train the models
 ```usage: train_model.py [-h] -d DATASET -m TRAINED_MODEL```

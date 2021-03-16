@@ -145,4 +145,4 @@ for imagePath in imagePaths:
     plt.xticks([]), plt.yticks([])
     plt.show(block=True)
 
-    print("[INFO] captcha: {}".format("".join(predictions)))
+    #print("[INFO] captcha: {}".format("".join(predictions)))
